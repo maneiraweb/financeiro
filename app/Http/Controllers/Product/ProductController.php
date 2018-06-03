@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
 
 	#API KEY MAINO
-    private $codigo = "e4f60a1ebbab3620634532121a556e95";
+    private $codigo = "";
     #URL para ler os produtos cadastrados no ERP
     private $API_URL = 'https://comexnfe.com.br/api/v2/produtos.json?api_key=';
     #URL do Dominio do ERP
@@ -23,8 +23,8 @@ class ProductController extends Controller
    
     public function ShowProduct()
     {
-	$json = file_get_contents('https://comexnfe.com.br/api/v2/produtos.json?api_key=e4f60a1ebbab3620634532121a556e952323212');
-	$products = (array)(json_decode($json,true));
+	$json = file_get_contents('https://comexnfe.com.br/api/v2/produtos.json?api_key=');
+	$products = (json_decode($json,true));
 
 	
     return View('Products/product-list')->with(compact('products', $products));
